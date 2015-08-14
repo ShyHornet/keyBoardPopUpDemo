@@ -1,12 +1,12 @@
 ##为什么要做这个效果
-------
+
 在qq微信中，你会注意到一个效果，就是在你点击输入框时输入框会跟随键盘一起向上弹出，当你点击其他地方时，输入框又会跟随键盘一起向下收回.你会发现二者完全无缝连接，也许你会说直接在键盘弹出的时候把输入框也向上移动不就行了？但是我使用这种方法的时候，发现效果十分不理想，原因有以下几点:
 1.键盘弹出动画并不是匀速，键盘和输入框的时间曲线不完全一致,运动不同步
 2.各种键盘的高度不一样（比如搜狗输入法就比系统自带键盘要高）
 3.无法确定键盘动画的时间，会导致延迟
 
 ##解决方案
-___
+
 >这里应用了两种在ios编程中很重要的思想:`Key-value coding` (KVC) 和 `key-value observing` (KVO)
 
 1.使用`  NSNotificationCenter.defaultCenter().addObserver()`添加对`UIKeyboardWillShowNotification`和`UIKeyboardWillHideNotification`键的监控，当这些值发生改变时发送通知
